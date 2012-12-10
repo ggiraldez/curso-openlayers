@@ -11,6 +11,9 @@ app.configure(function() {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(app.router);
+    app.use(express.static(path.join(__dirname, 'public')));
+    app.use(express.static(path.join(__dirname, 'shared')));
+    app.use('/slides', express.static(path.join(__dirname, 'slides')));
 });
 
 app.configure('development', function(){

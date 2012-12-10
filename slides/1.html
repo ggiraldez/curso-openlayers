@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+
+	<title>Programación Web y Clientes GIS Livianos</title>
+	
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" href="core/deck.core.css">
+	
+	<!-- Extension CSS files go here. Remove or add as needed. -->
+	<link rel="stylesheet" href="extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="extensions/status/deck.status.css">
+	<link rel="stylesheet" href="extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="extensions/scale/deck.scale.css">
+
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" href="themes/style/swiss.css">
+	<link rel="stylesheet" href="themes/style/custom.css">
+	
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+  <!--<link rel="stylesheet" href="themes/transition/fade.css">-->
+	
+	<!-- Required Modernizr file -->
+	<script src="modernizr.custom.js"></script>
+</head>
+<body class="deck-container">
+
+<!-- Begin slides. Just make elements with a class of slide. -->
+
+<section class="slide">
+<h1>Programación Web y Clientes GIS Livianos</h1>
+</section>
+
+<section class="slide">
+<h1 class="small">
+  Gustavo Giráldez<br>
+  Depto. Modelado y Manejo de Crisis<br>
+  CITEDEF<br>
+  gustavo.giraldez@gmail.com
+</h1>
+</section>
+
+<section class="slide">
+<h1>Programación Web</h1>
+</section>
+
+<section class="slide">
+<h2>Modelo de Programación de la Web</h2>
+<ul>
+  <li>Arquitectura Cliente-Servidor
+  <li>Tres elementos esenciales:
+  <ul>
+    <li>un sistema de identificadores globales únicos: URL (Universal Resource Location)
+    <li>un lenguaje de publicación de hipertexto: HTML (Hypertext Markup Language)
+    <li>un protocolo de transferencia de datos: HTTP (Hypertext Transfer Protocol)
+  </ul>
+  <li>El Cliente se denomina Navegador (Web Browser)
+</ul>
+</section>
+
+<section class="slide">
+<h2>Modelo de Programación de la Web</h2>
+<h3>Arquitectura Cliente-Servidor</h3>
+</section>
+
+<section class="slide">
+<h2>Modelo de Programación de la Web</h2>
+<h3>URL (Universal Resource Location)</h3>
+<pre>scheme://domain:port/path?query_string#fragment_id</pre>
+<ul>
+  <li><code>scheme</code> define el protocolo (eg. http, https, ftp, sftp)
+  <li><code>domain</code> es un nombre de host o número de IP indicando el destino (eg. www.google.com, mail.google.com, en.wikipedia.org)
+  <li><code>port</code> define el puerto TCP/IP donde se encuentra el recurso (opcional)
+  <li><code>path</code> define la ruta al recurso dentro del servidor
+  <li><code>query_string</code> son parámetros para el servidor
+  <li><code>fragment_id</code> indica una parte o posición dentro del documento o recurso
+</ul>
+</section>
+
+<section class="slide">
+<h2>Modelo de Programación de la Web</h2>
+<h3>HTML (Hypertext Markup Language)</h3>
+<pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Título de la página&lt;/title&gt;
+    &lt;meta charset="utf-8"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;¡Hola mundo!&lt;/h1&gt;
+    &lt;p&gt;¿Cómo están hoy?
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</section>
+
+<section class="slide">
+<h2>Modelo de Programación de la Web</h2>
+<h3>HTTP (Hypertext Transfer Protocol)</h3>
+<ul>
+  <li>Transfiere un recurso por solicitud
+  <li>La versión HTTP/1.1 introduce conexiones persistentes y pipelining
+  <li>HTTP es un protocolo stateless
+  <li>Cookies y sesiones
+</ul>
+</section>
+
+<section class="slide">
+<h2>Modelo de Programación de la Web</h2>
+<ul>
+  <li>AJAX (Asynchronous Javascript and XML)
+</ul>
+</section>
+
+<section class="slide">
+<h2>Programación del Cliente</h2>
+<ul>
+  <li>HTML (Hypertext Markup Language)
+  <li>CSS (Cascading Stylesheets)
+  <li>Javascript
+  <ul>
+    <li>DOM (Document Object Model)
+    <li>XMLHTTPRequest (XHR)
+    <ul>
+      <li>XML (Extensible Markup Language)
+      <li>JSON (Javascript Object Notation)
+    </ul>
+  </ul>
+</ul>
+</section>
+
+<!-- End slides. -->
+
+
+<!-- Begin extension snippets. Add or remove as needed. -->
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+<!-- End extension snippets. -->
+
+
+<!-- Required JS files. -->
+<script src="jquery-1.7.2.min.js"></script>
+<script src="core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="extensions/hash/deck.hash.js"></script>
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
