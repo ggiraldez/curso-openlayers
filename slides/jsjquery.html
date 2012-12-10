@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+
+	<title>Programación Web y Clientes GIS Livianos</title>
+	
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" href="core/deck.core.css">
+	
+	<!-- Extension CSS files go here. Remove or add as needed. -->
+	<link rel="stylesheet" href="extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="extensions/status/deck.status.css">
+	<link rel="stylesheet" href="extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="extensions/scale/deck.scale.css">
+
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" href="themes/style/swiss.css">
+	<link rel="stylesheet" href="themes/style/custom.css">
+	
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+  <!--<link rel="stylesheet" href="themes/transition/fade.css">-->
+	
+	<!-- Required Modernizr file -->
+	<script src="modernizr.custom.js"></script>
+</head>
+<body class="deck-container">
+
+<!-- Begin slides. Just make elements with a class of slide. -->
+
+<section class="slide">
+<h1>Javascript y jQuery</h1>
+</section>
+
+<section class="slide">
+<h2>Javascript</h2>
+<h3>Características del lenguaje</h3>
+<ul>
+  <li>Lenguaje dinámico
+  <li>Orientado a objetos
+  <li>Pero no tiene clases
+  <li>Funciones first-class
+  <li>Clausuras
+</ul>
+</section>
+
+<section class="slide">
+<h2>Javascript</h2>
+<h3>Modelo de programación en el browser</h3>
+<ul>
+  <li>Single-threaded
+  <li>La UI se bloquea mientras se ejecuta un script
+  <li>HTML5 introduce WebWorkers
+  <li>Procesamiento asincrónico mediante callbacks
+  <li>Valores futuros (promises, deferreds)
+</ul>
+</section>
+
+<section class="slide">
+<h2>Javascript</h2>
+<h3>Tipos de dato</h3>
+<ul>
+  <li>Números <code>0, -5, 3.3, 1.5e-7</code>
+  <li>Strings <code>"hola", 'que tal?'</code>
+  <li>Booleanos <code>true</code> y <code>false</code>
+  <li>Arrays <code>[1,3,5,'foo']</code>
+  <li>Objetos <code>{ foo:42, bar:'un string' }</code>
+  <li><code>undefined</code> y <code>null</code>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Javascript</h2>
+<h3>Variables</h3>
+<ul>
+  <li>Las variables se declaran con <code>var</code>
+  <li>Los nombres de variable puede contener letras, números y el guión bajo
+  <li>Los nombres de variable son sensibles al caso
+  <li>Ejemplos:
+  <ul>
+    <li><code>var a = 5;</code>
+    <li><code>var o = { primero: 1, 'segundo': 2 };</code>
+    <li><code>var l = [1, 1, 2, 3, 5, 8, 13];</code>
+  </ul>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Javascript</h2>
+<h3>Sentencias</h3>
+<ul>
+  <li>Las sentencias terminan con <code>;</code>
+  <li>Salvo que el punto y coma es opcional (a veces)
+  <li>Los comentarios se pueden escribir con <code>//</code> hasta el final de línea
+  <li>Ó encerrandolos entre <code>/*</code> y <code>*/</code>
+  <li>Condicionales <code>if (cond) { cond_es_true(); } else { cond_es_false(); }</code>
+  <li>Iteraciones <code>while (cond) {}</code>
+  <li>Iteraciones <code>for (inicial; condicion; iteración) {}</code>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Javascript</h2>
+<h3>Funciones</h3>
+<pre>
+function sumar(a, b) {
+  var result;
+  result = a + b;
+  return result;
+};
+var c = sumar(10, 20);   // c == 30
+</pre>
+<p>Como las funciones son objetos de primera clase en Javascript, también podemos hacer
+<pre>
+var sumar = function(a, b) {
+  return a + b;
+}
+var c = sumar(10, 20);   // c == 30
+</pre>
+</section>
+
+<section class="slide">
+<h2>Javascript</h2>
+<h3>Clausuras</h3>
+<p>Si una función usa una variable declarada por fuera de ella, por clausura la función <em>captura</em> una referencia a la variable que se utiliza cada vez que se invoca la función.
+<pre>
+var x = 2;
+function sumar_x(a) {
+  return a + x;
+}
+console.log(sumar_x(10));   // imprime 12
+x = 5;
+console.log(sumar_x(15));   // imprime 20
+</pre>
+</section>
+
+<section class="slide">
+<h2>Javascript</h2>
+<h3>Clausuras, un ejemplo más complicado</h3>
+<pre>
+function crear_contador() {
+  var i = 0;
+  return function() {
+    i = i + 1;
+    return i;
+  }
+}
+var c1 = crear_contador();
+var c2 = crear_contador();
+console.log(c1());   // 1
+console.log(c1());   // 2
+console.log(c1());   // 3
+console.log(c2());   // 1
+</pre>
+</section>
+
+<section class="slide">
+<h2>Javascript</h2>
+<h3>Acceso y manipulación del DOM</h3>
+<ul>
+  <li>variables <code>document</code> y <code>window</code>
+  <li><code>document.head</code> y <code>document.body</code>
+  <li><code>document.getElementById('boton')</code>
+  <li><code>element.getElementsByTagName('p')</code>
+</ul>
+</section>
+
+<section class="slide">
+<h2>jQuery</h2>
+<h3>Fundamentos</h3>
+<ul>
+  <li>Querying y manipulación del DOM
+  <li>Programación centrada en el DOM
+  <li>Selectores CSS compatibles, pero jQuery agrega otros operadores
+  <li>Chaining
+  <li>También tiene funciones para realizar solicitudes al servidor mediante XHR
+  <li>Y algunas otras funciones y objetos de utilidad
+  <li>Abstrae diferencias entre los distintos browsers
+</ul>
+</section>
+
+<!-- End slides. -->
+
+
+<!-- Begin extension snippets. Add or remove as needed. -->
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+<!-- End extension snippets. -->
+
+
+<!-- Required JS files. -->
+<script src="jquery-1.7.2.min.js"></script>
+<script src="core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="extensions/hash/deck.hash.js"></script>
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
