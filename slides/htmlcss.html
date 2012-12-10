@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+
+	<title>Programación Web y Clientes GIS Livianos</title>
+	
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" href="core/deck.core.css">
+	
+	<!-- Extension CSS files go here. Remove or add as needed. -->
+	<link rel="stylesheet" href="extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="extensions/status/deck.status.css">
+	<link rel="stylesheet" href="extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="extensions/scale/deck.scale.css">
+
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" href="themes/style/swiss.css">
+	<link rel="stylesheet" href="themes/style/custom.css">
+	
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+  <!--<link rel="stylesheet" href="themes/transition/fade.css">-->
+	
+	<!-- Required Modernizr file -->
+	<script src="modernizr.custom.js"></script>
+</head>
+<body class="deck-container">
+
+<!-- Begin slides. Just make elements with a class of slide. -->
+
+<section class="slide">
+<h1>HTML y CSS</h1>
+</section>
+
+<section class="slide">
+<h2>HTML</h2>
+<ul>
+  <li>La idea es separar el contenido (el qué) de la presentación (cómo se muestra)
+  <li>HTML provee etiquetas que le dan semántica al contenido
+  <ul>
+    <li><code>head, title, body</code>
+    <li><code>h1</code> a <code>h6</code>
+    <li><code>p, img</code>
+    <li><code>table, thead, tbody, tr, th, td</code>
+    <li><code>ul, ol, li</code>
+    <li><code>div, span</code>
+  </ul>
+  <li>El navegador tiene un estilo predeterminado para cada etiquetas, pero luego lo podemos modificar con una hoja de estilos (CSS)
+</ul>
+</section>
+
+<section class="slide">
+<h2>HTML - Hypertext Markup Language</h2>
+<h3>Estructura básica de un documento</h3>
+<pre>&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Título de la página&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Título&lt;/h1&gt;
+    &lt;p&gt;Esto es un párrafo
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</section>
+
+<section class="slide">
+<h2>HTML</h2>
+<h3>Atributos comunes a todos los elementos</h3>
+<ul>
+  <li><code>id="boton1"</code> debe ser único en el documento
+  <li><code>class="listado primario"</code> se usa para vincular con CSS, pero se puede usar semánticamente
+  <li><code>style="color: red;"</code> se usa para embeber CSS en un elemento particular
+  <li><code>data-*</code> datos de usuario (eg. <code>data-parametro="algún dato arbitrario"</code>)
+</ul>
+</section>
+
+<section class="slide">
+<h2>HTML</h2>
+<ul>
+  <li>HTML no es estricto como XML
+  <li>Existe XHTML, pero está siendo depreciado
+  <li>Algunas etiquetas de cierre son opcionales
+  <li>No es necesario encomillar el valor de los atributos
+  <li>Entidades HTML (&amp; + codigo + ;)
+  <ul>
+    <li>para representar caracteres especiales
+    <li>&amp;lt; &amp;gt; &amp;amp; &amp;quot;
+    <li>&amp;copy; &amp;aacute; &amp;ntilde; &amp;euro;
+    <li>&amp;#numero;
+  </ul>
+  <li>Hay caracteres especiales que pueden codificarse directamente
+  <li>Para eso hay que indicar el character encoding del documento
+  <ul>
+    <li>tag <code>&lt;meta charset=&quot;utf-8&quot;&gt;</code>
+    <li>encabezado HTTP: <code>Content-type: text/html; charset=utf-8</code>
+    <li>tag <code>&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;</code>
+  </ul>
+</ul> 
+</section>
+
+<section class="slide">
+<h2>HTML5</h2>
+<h3>Documento válido mínimo</h3>
+<pre>&lt;!doctype html&gt;
+&lt;title&gt;Título de la página&lt;/title&gt;
+</pre>
+</section>
+
+<section class="slide">
+<h2>HTML</h2>
+<h3>Disposición (layout) de elementos</h3>
+<ul>
+  <li>Hay 4 grandes tipos de layout
+  <ul>
+    <li><code>inline</code>
+    <li><code>block</code>
+    <li><code>list-item</code>
+    <li><code>table</code>
+  </ul>
+  <li>Y también está <code>float</code>
+  <li>Cada tag de HTML tiene asociado un tipo predeterminado de layout
+  <li>Pero puede alterarse mediante CSS
+</ul>
+</section>
+
+<section class="slide">
+<h2>CSS - Cascading Stylesheets</h2>
+<h3>Ejemplo</h3>
+<pre>
+body {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  color: blue;
+  background-color: #ffff00;
+  font-size: 18px;
+}
+img {
+  border: 1px solid green;
+}
+p {
+  margin-top: 5px;
+}
+</pre>
+</section>
+
+<section class="slide">
+<h2>CSS - Cascading Stylesheets</h2>
+<h3>Selectores</h3>
+<ul>
+  <li>Selector universal <code>*</code>
+  <li>Por tag <code>DIV</code>
+  <li>Por clase <code>.listado</code>
+  <li>Por ID <code>#boton1</code>
+  <li>Pseudo-clases <code>:hover</code>
+  <li>Por atributos <code>input[type=text]</code>
+  <li>Combinación de selectores
+  <ul>
+    <li>Descendiente (<code>E F</code>)
+    <li>Descendiente directo (child) (<code>E &gt; F</code>)
+    <li>Hermano (<code>E + F</code>)
+  </ul>
+</ul>
+</section>
+
+<section class="slide">
+<h2>CSS - Cascading Stylesheets</h2>
+<h3>Box Model</h3>
+</section>
+
+<section class="slide">
+<h2>CSS - Cascading Stylesheets</h2>
+<h3>Posicionamiento</h3>
+<ul>
+  <li><code>top, bottom, left, right</code>
+  <li><code>width, height</code>
+  <li><code>position</code>
+  <ul>
+    <li><code>static</code> es el posicionamiento predeterminado
+    <li><code>relative</code> el elemento no se quita del flow, pero se puede desplazar
+    <li><code>absolute</code> el elemento se quita completamente del flow y se posiciona según el ancestro más cercano posicionado
+    <li><code>fixed</code> idem anterior, pero la posición es relativa a la ventana
+  </ul>
+</ul>
+</section>
+
+<!-- End slides. -->
+
+
+<!-- Begin extension snippets. Add or remove as needed. -->
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+<!-- End extension snippets. -->
+
+
+<!-- Required JS files. -->
+<script src="jquery-1.7.2.min.js"></script>
+<script src="core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="extensions/hash/deck.hash.js"></script>
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
