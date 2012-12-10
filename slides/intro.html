@@ -103,8 +103,64 @@
 <h2>Modelo de Programación de la Web</h2>
 <h3>HTTP (Hypertext Transfer Protocol)</h3>
 <ul>
+  <li>Request
+  <pre>GET /wiki/List_of_HTTP_status_codes HTTP/1.1
+Host: en.wikipedia.org
+Connection: keep-alive
+Cache-Control: max-age=0
+User-Agent: Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.91 Safari/537.11
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Referer: http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.3
+Cookie: clicktracking-session=9w6bYPkoaqbgB3NXWIuRUlNB7OGxJXCBy; mediaWiki.user.bucket%3Aext.articleFeedbackv5%4011-tracking=11%3Aignore; mediaWiki.user.bucket%3Aext.articleFeedbackv5%406-form=6%3A6; mediaWiki.user.bucket%3Aext.articleFeedbackv5%405-links=5%3AX; centralnotice_bucket=1-4.2; mediaWiki.user.bucket%3Aext.articleFeedback-tracking=10%3Atrack; mediaWiki.user.bucket%3Aext.articleFeedback-options=8%3Ashow; mediaWiki.user.id=wLUsUQ5SIRfAU9Npl3zeYURE5YLIXoG7
+If-Modified-Since: Mon, 10 Dec 2012 09:16:44 GMT
+</pre>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Modelo de Programación de la Web</h2>
+<h3>HTTP (Hypertext Transfer Protocol)</h3>
+<ul>
+  <li>Response
+  <pre>HTTP/1.0 200 OK
+X-Content-Type-Options: nosniff
+Content-Language: en
+Last-Modified: Mon, 10 Dec 2012 09:16:44 GMT
+Content-Encoding: gzip
+Content-Length: 23280
+Content-Type: text/html; charset=UTF-8
+Date: Mon, 10 Dec 2012 09:57:18 GMT
+Server: Apache
+Cache-Control: private, s-maxage=0, max-age=0, must-revalidate
+Vary: Accept-Encoding,Cookie
+Age: 1
+X-Cache: HIT from cp1019.eqiad.wmnet
+X-Cache-Lookup: HIT from cp1019.eqiad.wmnet:3128
+X-Cache: MISS from cp1003.eqiad.wmnet
+X-Cache-Lookup: MISS from cp1003.eqiad.wmnet:80
+Connection: keep-alive
+  </pre>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Modelo de Programación de la Web</h2>
+<h3>HTTP (Hypertext Transfer Protocol)</h3>
+<ul>
   <li>Transfiere un recurso por solicitud
   <li>La versión HTTP/1.1 introduce conexiones persistentes y pipelining
+  <li>Métodos (o verbos) HTTP: GET, POST, PUT, DELETE, HEAD, OPTIONS
+  <li>Códigos de resultado:
+  <ul>
+    <li>1xx Informational
+    <li>2xx Success
+    <li>3xx Redirection
+    <li>4xx Client Error
+    <li>5xx Server Error
+  </ul>
   <li>HTTP es un protocolo stateless
   <li>Cookies y sesiones
 </ul>
@@ -112,26 +168,67 @@
 
 <section class="slide">
 <h2>Modelo de Programación de la Web</h2>
+<h3>El Navegador I</h3>
+</section>
+
+<section class="slide">
+<h2>Modelo de Programación de la Web</h2>
+<h3>Limitaciones y problemas del esquema tradicional</h3>
 <ul>
-  <li>AJAX (Asynchronous Javascript and XML)
+  <li>Contenido estático
+  <li>Latencia en las comunicaciones
+  <li>El cliente es bobo
+  <li>Baja interacción con el usuario
+  <li>Poca expresividad y contenido multimedia
 </ul>
 </section>
 
 <section class="slide">
-<h2>Programación del Cliente</h2>
+<h2>Modelo de Programación de la Web</h2>
+<h3>Web 2.0, contenido</h3>
 <ul>
-  <li>HTML (Hypertext Markup Language)
-  <li>CSS (Cascading Stylesheets)
+  <li>HTML5
+  <ul>
+    <li>Tags semánticos
+    <li>Canvas/SVG
+    <li>HTML Audio y Video
+    <li>Atributos <code>data-*</code>
+  </ul>
+  <li>CSS3
+  <ul>
+    <li>Transiciones y animaciones
+    <li>Webfonts
+    <li><code>border-radius</code>, <code>box-shadow</code>, <code>text-shadow</code>, gradientes
+    <li>Box model, flex layout, grid layout
+  </ul>
   <li>Javascript
   <ul>
     <li>DOM (Document Object Model)
-    <li>XMLHTTPRequest (XHR)
-    <ul>
-      <li>XML (Extensible Markup Language)
-      <li>JSON (Javascript Object Notation)
-    </ul>
+    <li>ECMAScript 5, V8, SpiderMonkey
   </ul>
+  <li>WebGL
 </ul>
+</section>
+
+<section class="slide">
+<h2>Modelo de Programación de la Web</h2>
+<h3>Web 2.0, interactividad</h3>
+<ul>
+  <li>AJAX (Asynchronous Javascript and XML)
+  <li>XMLHTTPRequest (XHR)
+  <li>XML (Extensible Markup Language)
+  <li>JSON (Javascript Object Notation)
+  <li>Websockets
+  <li>SSE (Server-Side Events)
+  <li>Web Storage
+  <li>History management
+  <li>Offline applications
+</ul>
+</section>
+
+<section class="slide">
+<h2>Modelo de Programación de la Web</h2>
+<h3>El Navegador II</h3>
 </section>
 
 <!-- End slides. -->
