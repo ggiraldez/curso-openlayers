@@ -23,7 +23,7 @@
 	<link rel="stylesheet" href="themes/style/custom.css">
 	
 	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
-  <!--<link rel="stylesheet" href="themes/transition/fade.css">-->
+  <!--<link rel="stylesheet" href="themes/transition/horizontal-slide.css">-->
 	
 	<!-- Required Modernizr file -->
 	<script src="modernizr.custom.js"></script>
@@ -160,12 +160,39 @@ console.log(c2());   // 1
 
 <section class="slide">
 <h2>Javascript</h2>
+<h3>Como incluir Javascript en un documento HTML</h3>
+<ul>
+  <li>Directamente
+  <pre>
+&lt;script&gt;
+function hola() {
+  alert('Hola que tal?');
+}
+hola();
+&lt;/script&gt;
+  </pre>
+  <li>Separando el código en un archivo
+  <pre>
+&lt;script src="/url/al/archivo.js"&gt;&lt;/script&gt;
+  </pre>
+  <li><em>IMPORTANTE</em>: el tag de cierre siempre tiene que estar presente (una diferencia más con XML)
+  <li>Antes de HTML5 era necesario también especificar el atributo <code>type="text/javascript"</code>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Javascript</h2>
 <h3>Acceso y manipulación del DOM</h3>
 <ul>
   <li>variables <code>document</code> y <code>window</code>
   <li><code>document.head</code> y <code>document.body</code>
   <li><code>document.getElementById('boton')</code>
   <li><code>element.getElementsByTagName('p')</code>
+</ul>
+<h3>Funciones de utilidad</h3>
+<ul>
+  <li><code>alert()</code></li>
+  <li><code>console.log(), console.error(), console.warn()</code></li>
 </ul>
 </section>
 

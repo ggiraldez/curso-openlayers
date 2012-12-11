@@ -49,7 +49,7 @@
     <li><code>ul, ol, li</code>
     <li><code>div, span</code>
   </ul>
-  <li>El navegador tiene un estilo predeterminado para cada etiquetas, pero luego lo podemos modificar con una hoja de estilos (CSS)
+  <li>El navegador tiene un estilo predeterminado para cada etiqueta, que luego podemos modificar con una hoja de estilos (CSS)
 </ul>
 </section>
 
@@ -117,7 +117,7 @@
 <h2>HTML</h2>
 <h3>Disposición (layout) de elementos</h3>
 <ul>
-  <li>Hay 4 grandes tipos de layout
+  <li>Hay 4 formas básicas de layout
   <ul>
     <li><code>inline</code>
     <li><code>block</code>
@@ -125,7 +125,7 @@
     <li><code>table</code>
   </ul>
   <li>Y también está <code>float</code>
-  <li>Cada tag de HTML tiene asociado un tipo predeterminado de layout
+  <li>Cada tag de HTML tiene asociado una forma de layout predeterminada
   <li>Pero puede alterarse mediante CSS
 </ul>
 </section>
@@ -154,6 +154,26 @@ p {
 
 <section class="slide">
 <h2>CSS - Cascading Stylesheets</h2>
+<h3>Como incluir estilo en un documento HTML</h3>
+<ul>
+  <li>Directamente
+  <pre>
+&lt;style&gt;
+h1 {
+  color: blue;
+}
+&lt;/style&gt;
+  </pre>
+  <li>Vinculando un archivo (en la sección <code>&lt;head&gt;</code>)
+  <pre>
+&lt;link rel="stylesheet" href="/url/al/archivo.css"&gt;
+  </pre>
+  <li>Antes de HTML5 era necesario agregar el atributo <code>type="text/css"</code>
+</ul>
+</section>
+
+<section class="slide">
+<h2>CSS - Cascading Stylesheets</h2>
 <h3>Selectores</h3>
 <ul>
   <li>Selector universal <code>*</code>
@@ -174,6 +194,7 @@ p {
 <section class="slide">
 <h2>CSS - Cascading Stylesheets</h2>
 <h3>Box Model</h3>
+<img src="images/css-box-model.png">
 </section>
 
 <section class="slide">
