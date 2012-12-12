@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    padding: 10px;
+    position: relative;
+}
+h1 {
+    margin-top: 0;
+}
+.ficha {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+.pista {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 8px;
+    background-color: gray;
+}
+.resultados {
+    display: inline-block;
+    width: 35px;
+    margin-left: 10px;
+}
+.gris {
+    border-color: gray;
+    background-color: gray;
+}
+.azul {
+    background-color: blue;
+}
+.verde {
+    background-color: green;
+}
+.amarilla {
+    background-color: yellow;
+}
+.naranja {
+    background-color: orange;
+}
+.roja {
+    background-color: red;
+}
+.violeta {
+    background-color: purple;
+}
+
+.barra-izq {
+    width: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: lightgray;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.tablero {
+    padding: 20px;
+    background-color: #eee;
+    margin-left: 80px;
+}
+.adivinanzas > ul {
+    margin-top: 0;
+    padding-left: 0;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+}
+.adivinanzas li {
+    list-style-type: none;
+}
+.solucion {
+    padding: 5px;
+    position: relative;
+    left: -5px;
+    background-color: #ddd;
+    display: inline-block;
+}
+

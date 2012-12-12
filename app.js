@@ -21,7 +21,10 @@ app.configure('development', function(){
 });
 
 app.get('/', function(req, res) {
-    res.send('Hello world');
+    res.sendfile(path.join(__dirname, 'public', 'index.html'));
+});
+app.get('/slides', function(req, res) {
+    res.redirect('/slides/intro.html');
 });
 
 http.createServer(app).listen(app.get('port'), function(){
