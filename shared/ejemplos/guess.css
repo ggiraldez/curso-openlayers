@@ -12,6 +12,7 @@ h1 {
     height: 40px;
     border-radius: 20px;
     border: 1px solid black;
+    margin-right: 2px;
 }
 .pista {
     display: inline-block;
@@ -19,6 +20,13 @@ h1 {
     height: 15px;
     border-radius: 8px;
     background-color: gray;
+    margin-right: 2px;
+}
+.pista.completo {
+    background-color: black;
+}
+.pista.parcial {
+    background-color: white;
 }
 .resultados {
     display: inline-block;
@@ -64,14 +72,14 @@ h1 {
     background-color: #eee;
     margin-left: 80px;
 }
-.adivinanzas > ul {
+.jugadas > ul {
     margin-top: 0;
     padding-left: 0;
     margin-bottom: 5px;
     padding-bottom: 5px;
     border-bottom: 1px solid black;
 }
-.adivinanzas li {
+.jugadas li {
     list-style-type: none;
 }
 .solucion {
