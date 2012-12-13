@@ -1,5 +1,6 @@
 var express = require('express')
   , http = require('http')
+  , url = require('url')
   , path = require('path');
 
 var app = new express();
@@ -25,6 +26,27 @@ app.get('/', function(req, res) {
 });
 app.get('/slides', function(req, res) {
     res.redirect('/slides/intro.html');
+});
+app.get('/proxy', function(req, res) {
+    var req_url = req.param('url');
+    if (!req_url || !url.parse(req_url)) {
+        res.send(400, 'falta el parámetro url');
+    } else {
+        var client_req = http.get(url.parse(req_url), function(client_res) {
+            res.writeHead(client_res.statusCode, client_res.headers);
+            client_res.on('data', function(chunk) {
+                res.write(chunk);
+            });
+            client_res.on('end', function() {
+                res.end();
+            });
+        });
+        client_req.on('error', function(err) {
+            console.error('error proxying ' + req_url + ': ' + err.message);
+            console.error(err);
+            res.send(500, err.message);
+        });
+    }
 });
 
 http.createServer(app).listen(app.get('port'), function(){
