@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Base para páginas de OpenLayers</title>
+<script src="../libs/jquery-1.8.3.js"></script>
+<script src="../libs/OpenLayers-2.12/OpenLayers.debug.js"></script>
+
+<style>
+  #mapa {
+    width: 600px;
+    height: 400px;
+    border: 1px solid black;
+  }
+</style>
+
+<h1>Mapa simple</h1>
+
+<div id="mapa"><div>
+
+<script>
+  var map;
+  var layer;
+  $(function() {
+    map = new OpenLayers.Map('mapa');
+    layer = new OpenLayers.Layer.WMS("Capa WMS", 
+      "http://vmap0.tiles.osgeo.org/wms/vmap0",
+      { layers: 'basic' });
+    map.addLayer(layer);
+    map.zoomToMaxExtent();
+  });
+</script>
+
