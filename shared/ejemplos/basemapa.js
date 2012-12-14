@@ -4,10 +4,25 @@ var map;
 var layer1, layer2;
 // la capa vectorial
 var vectorial;
+// capa de markers
+var markers;
 // los controles
 var medir, dibujar, consultar, consultar_gml;
+// iconos para markers
+var iconos = {};
+// nombres de los iconos
+var nombres = ['marker', 'marker-blue', 'marker-green', 'marker-gold'];
 
 OpenLayers.ProxyHost = '/proxy?url=';
+
+function agregar_legend(layer) {
+    var url = layer.getFullRequestString({
+        REQUEST: 'GetLegendGraphic',
+        LAYERS: '',
+        LAYER: layer.params.LAYERS
+    });
+    $('<img>').attr('src', url).appendTo('.legend');
+}
 
 function agregar_layers() {
     layer1 = new OpenLayers.Layer.WMS("Capa WMS", 
@@ -22,6 +37,12 @@ function agregar_layers() {
 
     vectorial = new OpenLayers.Layer.Vector();
     map.addLayer(vectorial);
+
+    markers = new OpenLayers.Layer.Markers('Markers');
+    map.addLayer(markers);
+
+    agregar_legend(layer1);
+    agregar_legend(layer2);
 }
 
 function agregar_controles() {
@@ -71,10 +92,40 @@ function agregar_controles() {
     map.addControl(consultar_gml);
 }
 
+function crear_iconos() {
+    $.each(nombres, function(idx, nombre) {
+        iconos[nombre] = new OpenLayers.Icon('http://10.1.20.227:3000/libs/OpenLayers-2.12/img/' + nombre + '.png',
+            new OpenLayers.Size(21,25),
+            new OpenLayers.Pixel(-10, -25));
+    });
+}
+
+function agregar_markers() {
+    for (var i = 0; i < 10; i++) {
+        var lon = (Math.random() * 14) - 70;
+        var lat = (Math.random() * 33) - 55;
+        var marker = new OpenLayers.Marker(new OpenLayers.LonLat(lon, lat),
+                iconos[nombres[i % nombres.length]].clone());
+        markers.addMarker(marker);
+    }
+}
+
+function agregar_sismos() {
+    var icono = new OpenLayers.Icon('http://10.1.20.227:3000/libs/earthquake.png', new OpenLayers.Size(32,32), new OpenLayers.Pixel(-16,-16));
+    var sismos = new OpenLayers.Layer.GeoRSS('Sismos',
+            'http://www.inpres.gov.ar/rss/sismos7d.xml',
+            { icon: icono });
+    map.addLayer(sismos);
+}
+
+
 $(function() {
     map = new OpenLayers.Map('mapa', { });
     agregar_layers();
     agregar_controles();
+    crear_iconos();
+    agregar_markers();
+    agregar_sismos();
 
     var control_activo = null;
     var controles = ['medir', 'dibujar', 'consultar', 'consultar_gml'];

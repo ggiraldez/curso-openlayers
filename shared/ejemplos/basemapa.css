@@ -20,4 +20,19 @@
     font-weight: bold;
     padding: 10px;
 }
+.legend {
+    background-color: white;
+    padding: 5px;
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    z-index: 2000;
+    right: 5px;
+    bottom: 35px;
+    border: 1px solid darkblue;
+    overflow: auto;
+}
+.legend img {
+    display: block;
+}
 
