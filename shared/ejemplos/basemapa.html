@@ -3,97 +3,16 @@
 <title>Base para páginas de OpenLayers</title>
 <script src="../libs/jquery-1.8.3.js"></script>
 <script src="../libs/OpenLayers-2.12/OpenLayers.debug.js"></script>
-
-<style>
-  #mapa {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-  #mapa .olControlMousePosition {
-    color: white;
-    text-shadow: 0 0 3px rgba(0,0,0,.8);
-    font-size: 16px;
-  }
-  .toolbar {
-    position: absolute;
-    right: 5px;
-    z-index: 2000;
-  }
-  .toolbar button {
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px;
-  }
-</style>
+<link rel="stylesheet" href="basemapa.css">
 
 <div id="mapa">
   <div class="toolbar">
+    <button id="consultar">Consultar</button>  
+    <button id="consultar_gml">Consultar GML</button>  
     <button id="dibujar">Dibujar</button>  
     <button id="medir">Medir</button>  
   </div>
 <div>
 
-<script>
-  var map;
-  var layer1, layer2;
-  var vectorial;
-  var medir, dibujar;
-
-  function agregar_layers() {
-    layer1 = new OpenLayers.Layer.WMS("Capa WMS", 
-      "http://vmap0.tiles.osgeo.org/wms/vmap0",
-      { layers: 'basic' });
-    map.addLayer(layer1);
-
-    layer2 = new OpenLayers.Layer.WMS('OneGeology',
-      "http://www.onegeology-arg.com.ar/geoserver/wms",
-      { layers: 'GeoSciML:arg5m_geo', transparent: true });
-    map.addLayer(layer2);
-
-    vectorial = new OpenLayers.Layer.Vector();
-    map.addLayer(vectorial);
-  }
-
-  function agregar_controles() {
-    map.addControl(new OpenLayers.Control.MousePosition({ numDigits: 3 }));
-
-    medir = new OpenLayers.Control.Measure(OpenLayers.Handler.Path, { persist: true });
-    medir.events.register('measure', null, function(medicion) {
-      alert('La longitud es ' + medicion.measure + ' ' + medicion.units);
-    });
-    map.addControl(medir);
-
-    dibujar = new OpenLayers.Control.DrawFeature(vectorial, OpenLayers.Handler.Point, {});
-    map.addControl(dibujar);
-  }
-
-  $(function() {
-    map = new OpenLayers.Map('mapa', { });
-    agregar_layers();
-    agregar_controles();
-
-    $('#medir').click(function(evt) {
-      if (medir.active) {
-        medir.deactivate();
-      } else {
-        medir.activate();
-        dibujar.deactivate();
-      }
-    });
-
-    $('#dibujar').click(function(evt) {
-      if (dibujar.active) {
-        dibujar.deactivate();
-      } else {
-        dibujar.activate();
-        medir.deactivate();
-      }
-    });
-
-    map.moveTo(new OpenLayers.LonLat(-60, -34), 5);
-  });
-</script>
+<script src="basemapa.js"></script>
 

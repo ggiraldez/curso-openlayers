@@ -1,0 +1,40 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Capas de un WMS</title>
+<script src="../libs/jquery-1.8.3.js"></script>
+<script src="../libs/OpenLayers-2.12/OpenLayers.debug.js"></script>
+
+<div>
+  <input type="text" id="wmsurl" size="50">
+  <button id="buscar">Buscar capas</button>
+</div>
+
+<h2>Capas disponibles en el WMS</h2>
+<ul id="capas">
+</ul>
+
+<script>
+  OpenLayers.ProxyHost = '/proxy?url=';
+
+  $(function() {
+    $('#buscar').click(function(evt) {
+      $('#capas').empty().append('<li>Realizando consulta...</li>');
+      var url = $('#wmsurl').val();
+      OpenLayers.Request.GET({
+        url: url + '?service=WMS&request=GetCapabilities&version=1.0.0',
+        success: function(xhr) {
+          var format = new OpenLayers.Format.WMSCapabilities();
+          var caps = format.read(xhr.responseText);
+          console.log(caps);
+          $('#capas').empty();
+          $.each(caps.capability.layers, function(idx, layer) {
+            $('<li>').text(layer.name).appendTo('#capas');
+          });
+        },
+        failure: function(err) {
+          console.log(err);
+        }
+      });
+    });
+  });
+</script>
